@@ -1,4 +1,4 @@
-Usage
+Overview
 =====
 
 .. _installation:
@@ -6,29 +6,30 @@ Usage
 Installation
 ------------
 
-To use Lumache, first install it using pip:
+To use Focus Point, first install it using:
 
 .. code-block:: console
 
-   (.venv) $ pip install lumache
+   (ADD THE INSTALL HERE)
 
-Creating recipes
-----------------
+Features
+------------
 
-To retrieve a list of random ingredients,
-you can use the ``lumache.get_random_ingredients()`` function:
+Focus Point comes packed with a range of features to streamline your timetable management:
 
-.. autofunction:: lumache.get_random_ingredients
+Customizable Timetables: Create personalized timetables tailored to your unique schedule.
+Task Management: Keep track of assignments, deadlines, and study sessions effortlessly.
+Notification Alerts: Stay on top of your schedule with timely reminders and notifications.
+Sync Across Devices: Access your timetable from anywhere with seamless synchronization across multiple devices.
+Intuitive Interface: User-friendly design for easy navigation and quick access to essential features.
 
-The ``kind`` parameter should be either ``"meat"``, ``"fish"``,
-or ``"veggies"``. Otherwise, :py:func:`lumache.get_random_ingredients`
-will raise an exception.
+Viewing the timetable
+-------------
 
-.. autoexception:: lumache.InvalidKindError
+The timetable can instantly be viewed on the page with a 3 day and 7 day view, toggleable by clicking on the respective buttons. There are arrows which cycle through the weeks, always starting with the the current day.
 
-For example:
+Creating an Event
+-------------
 
->>> import lumache
->>> lumache.get_random_ingredients()
-['shells', 'gorgonzola', 'parsley']
+On the navigation bar, there is a add event button which will bring a window on the page with customisable dates and labels for the event. Here you can change which dates the event starts and ends. Once done, you will be able to see the new event immediately, as well as the event be kept on the timetable when refreshed.
 
