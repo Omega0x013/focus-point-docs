@@ -6,11 +6,11 @@ Overview
 Installation
 ------------
 
-To use Focus Point, first install it using:
+To use Focus Point, clone the repository and from the src (source) file, initialize it in command line by:
 
 .. code-block:: console
 
-   (ADD THE INSTALL HERE)
+   npm install
 
 Features
 ------------
