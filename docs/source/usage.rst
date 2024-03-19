@@ -6,7 +6,14 @@ Overview
 Installation
 ------------
 
-To use Focus Point, clone the repository and from the src (source) file, initialize it in command line by:
+To use Focus Point, clone the repository
+
+.. code-block:: console
+
+   git clone https://github.com/Omega0x013/setap-education.git
+
+
+and from the src (source) file, initialize it in command line by:
 
 .. code-block:: console
 
