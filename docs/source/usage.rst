@@ -18,6 +18,7 @@ and from the src (source) file, initialize it in command line by:
 .. code-block:: console
 
    npm install
+   npm start
 
 Features
 ------------
