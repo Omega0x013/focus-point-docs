@@ -11,7 +11,7 @@ how to :ref:`install` the project.
 
 .. note::
 
-   This project is under active development.
+   This project is under active development here at: https://github.com/Omega0x013/setap-education
 
 Contents
 --------
@@ -20,3 +20,4 @@ Contents
 
    usage
    api
+   contact
