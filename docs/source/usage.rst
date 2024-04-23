@@ -6,6 +6,8 @@ Overview
 Installation
 ------------
 
+A pre-requiste of Node.js is needed in order to be able to run the program. You may find out how to install it here at https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
+
 To use Focus Point, clone the repository
 
 .. code-block:: console
