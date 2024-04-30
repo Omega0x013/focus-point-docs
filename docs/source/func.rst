@@ -1,6 +1,8 @@
 Functions and Classes
 ---------
 
+*(For the web componenents where the constructor has been initialized, this is used to make sure that when you try to attach a html to the shadow DOM it doesnt cause an error if its already defined)*
+
 tagcomponent.mjs
 ==================
 
@@ -17,13 +19,13 @@ Once defined, you can interact with the `tag-input` element using JavaScript.
 Class: TagComponent
 **********************
 
-:class:`TagComponent` is a custom HTML element that represents a tag input component.
+:class:`TagComponent` is a custom HTML element that represents a tag input component
 
 Methods
 *********
 
 ``constructor()``
-    Initializes a new instance of the TagComponent class. Sets up initial properties.
+    Initializes a new instance of the TagComponent class. Sets up initial properties
 
     .. code-block:: javascript
 
@@ -34,7 +36,7 @@ Methods
         }
 
 ``prepareHandle()``
-    Asynchronously prepares the component for handling user input. Loads the necessary template and sets up event listeners.
+    Asynchronously prepares the component for handling user input. Loads the necessary template and sets up event listeners
 
     .. code-block:: javascript
 
@@ -56,7 +58,7 @@ Methods
         }
 
 ``connectedCallback()``
-    Called when the element is inserted into the DOM. Calls `prepareHandle()` to ensure the component is initialized properly.
+    Called when the element is inserted into the DOM, Calls `prepareHandle()` to ensure the component is initialized properly
 
     .. code-block:: javascript
 
@@ -91,7 +93,7 @@ Methods
         }
 
 ``storeTag(tagName, id)``
-    Stores a tag in the local storage. Associates the tag with an identifier.
+    Stores a tag in the local storage and asociates the tag with an identifier.
 
     .. code-block:: javascript
 
@@ -145,12 +147,6 @@ Methods
             this.itemList.prepend(tag);
             this.tags.push(inputText);
             this.inputField.value = '';
-            remove.addEventListener('click', () => {
-                this.removeTag(tag);
-            });
-            // Emit a tagAdded event
-            this.dispatchEvent(new CustomEvent('tagAdded', { detail: { tag: inputText } }));
-        }
 
 Events
 *******
@@ -251,7 +247,7 @@ Methods
         }
 
 ``updateStudyTime()``
-    Updates the displayed study time based on the input value.
+    Updates the displayed study time based on the input value
 
     .. code-block:: javascript
 
@@ -261,7 +257,7 @@ Methods
         }
 
 ``updateRestTime()``
-    Updates the displayed rest time based on the input value.
+    Updates the displayed rest time based on the input value
 
     .. code-block:: javascript
 
@@ -304,7 +300,7 @@ Methods
         }
 
 ``incrementTimer()``
-    Increments the timer by one second and updates the display. Handles switching between study and rest periods.
+    Increments the timer by one second and updates the display, Handles switching between study and rest periods
 
     .. code-block:: javascript
 
@@ -355,7 +351,7 @@ Methods
         }
 
 ``updateTimerDisplay()``
-    Updates the timer display with the current time and progress.
+    Updates the timer display with the current time and progress
 
     .. code-block:: javascript
 
@@ -403,12 +399,12 @@ To use this class, you need to define a custom HTML element with the name `timet
         tag="tag1,tag2">
     </timetable-event>
 
-Once defined, you can interact with the `timetable-event` element using JavaScript.
+Once defined, you can interact with the `timetable-event` element using javascript
 
 Class: TimetableEvent
 ***********************
 
-:class:`TimetableEvent` is a custom HTML element that represents a timetable event.
+:class:`TimetableEvent` is a custom HTML element that represents a timetabled event
 
 Methods
 *********
@@ -432,7 +428,7 @@ Methods
         }
 
 ``connectedCallback()``
-    Called when the element is inserted into the DOM. Adds a click event listener to open the event options popup.
+    Called when the element is inserted into the DOM. Adds a click event listener to open the event options pop-up
 
     .. code-block:: javascript
 
@@ -475,7 +471,7 @@ Methods
         }
 
 ``editThisEvent()``
-    Handles editing the event. Updates event details and refreshes the timetable display.
+    Handles editing the event and updates event details and refreshes the timetable display.
 
     .. code-block:: javascript
 
@@ -495,7 +491,7 @@ Methods
         }
 
 ``deleteThisEvent()``
-    Deletes the event and refreshes the timetable display.
+    Deletes the event and refreshes the timetable display
 
     .. code-block:: javascript
 
@@ -537,7 +533,7 @@ Template Definition
    </div>
    `
 
-This template defines the structure of a timetable event entry.
+This template defines the structure of a timetable event entry
 
 Structure
 **********
@@ -565,7 +561,7 @@ Functions
 
 ``getNextDays(date, days)``
    
-   Generates an array of dates for the next specified number of days starting from a given date.
+   Generates an array of dates for the next specified number of days starting from a given date
    
 .. code-block:: javascript
    
@@ -584,7 +580,7 @@ Functions
 
 ``saveDates()``
    
-   Saves event data entered in the add new event popup to the local storage.
+   Saves event data entered in the add new event popup to the local storage
    
 .. code-block:: javascript
 
@@ -609,7 +605,7 @@ Functions
 
 ``selfDelete()``
    
-   Removes the active popup from the DOM.
+   Removes the active popup from the DOM
    
 .. code-block:: javascript
 
@@ -644,7 +640,7 @@ Functions
 
 ``storeEvent(event)``
    
-   Stores a timetable event in the local storage.
+   Stores a timetable event in the local storage
    
 .. code-block:: javascript
 
@@ -685,7 +681,7 @@ Functions
 
 ``convertDateToInputValue(date)``
    
-   Converts a JavaScript date object to a string format suitable for input fields.
+   Converts a Javascript date object to a string format suitable for input fields
    
 .. code-block:: javascript
 
@@ -701,7 +697,7 @@ Functions
 
 ``fetchTemplate(path)``
    
-   Fetches an HTML template from the specified path and returns it as a DOM element.
+   Fetches an HTML template from the specified path and returns it as a DOM element
    
 .. code-block:: javascript
 
@@ -715,7 +711,7 @@ Functions
 
 ``displayPreviousDays()``
    
-    Displays the previous set of days on the timetable based on the currently selected view.
+    Displays the previous set of days on the timetable based on the currently selected vieww
    
 .. code-block:: javascript
 
@@ -735,7 +731,7 @@ Functions
 
 ``displayNextDays()``
    
-    Displays the next set of days on the timetable based on the currently selected view.
+    Displays the next set of days on the timetable based on the currently selected view
    
 .. code-block:: javascript
 
@@ -754,7 +750,7 @@ Functions
 
 ``timetableNavigation(nextSelector, previousSelector)``
    
-   Sets up navigation functionality for switching between timetable views.
+   Sets up navigation functionality for switching between timetable view
    
 .. code-block:: javascript
 
@@ -809,7 +805,7 @@ Functions
 
 ``fillTimetableDays(currentDate)``
    
-    Fills the timetable display with day headings based on the current date.
+    Fills the timetable display with day headings based on the current date
    
 .. code-block:: javascript
 
@@ -867,7 +863,7 @@ Functions
 
 ``multipleDaySort(a, b)``
    
-    Sorts events based on their duration and start date.
+    Sorts events based on their duration and start date
    
 .. code-block:: javascript
 
@@ -976,7 +972,7 @@ Functions
 
 ``getMinDayOnTimetable(timetable)``
    
-    Gets the minimum date displayed on the timetable.
+    Gets the minimum date displayed on the timetable
    
 .. code-block:: javascript
 
@@ -989,7 +985,7 @@ Functions
 
 ``getDifferenceDays(startDate, endDate)``
    
-    Calculates the difference in days between two dates.
+    Calculates the difference in days between two dates
    
 .. code-block:: javascript
 
@@ -1094,7 +1090,7 @@ Functions
 
 ``cleanTags(id)``
    
-    Removes tags associated with a specific event ID from local storage.
+    Removes tags associated with a specific event id from local storage
    
 .. code-block:: javascript
 
@@ -1109,7 +1105,7 @@ Functions
 
 ``init()``
    
-    Initializes the timetable display and sets up event listeners for navigation and adding new events.
+    initializes the timetable display and sets up event listeners for navigation and adding new events
    
 .. code-block:: javascript
 
@@ -1171,7 +1167,7 @@ Script
         nav.appendChild(timerlater);
     });
 
-This script initializes the timetable utilities module and listens for clicks on the button with the ID ``timerButton``. When clicked, it creates a new instance of the timer component and appends it to the navigation bar.
+This script initializes the timetable utilities module and listens for clicks on the button with the ID ``timerButton``. When clicked, it creates a new instance of the timer component and appends it to the navigation bar
 
 serviceworker.js
 ============================
@@ -1233,7 +1229,7 @@ This module sets up an Express application, defines routes for serving static fi
 uuid.mjs
 =======================
 
-This module provides a router for generating UUIDs using the `crypto.randomUUID()` function and handling requests to the `/api/uuid` endpoint.
+This module provides a router for generating UUIDs using the `crypto.randomUUID()` function and handling requests to the `/api/uuid` endpoint
 
 Module
 *******
