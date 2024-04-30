@@ -1151,33 +1151,34 @@ Functions
     Initializes the timetable display and sets up event listeners for navigation and adding new events.
    
     .. code-block:: javascript
-   
-       export function init() {
-  sessionStorage.setItem("currentDate", new Date());
-  let tempStore = { "events": [] };
-  // let tempStore = { };
-  if (localStorage[LOCALKEY] != null) {
-    tempStore = JSON.parse(localStorage[LOCALKEY]);
-  }
-  localStorage[LOCALKEY] = JSON.stringify(tempStore);
-  let tagStore = {};
-  if (localStorage["tags"] != null) {
-    tagStore = JSON.parse(localStorage["tags"]);
-  }
-  localStorage["tags"] = JSON.stringify(tagStore);
 
-  let date = new Date();
-  fillTimetableDays(date);
-  setCurrentMonth(date);
-  sessionStorage.setItem("currentDate", new Date());
+    export function init() {
+        sessionStorage.setItem("currentDate", new Date());
+        let tempStore = { "events": [] };
+        // let tempStore = { };
+        if (localStorage[LOCALKEY] != null) {
+            tempStore = JSON.parse(localStorage[LOCALKEY]);
+        }
+        localStorage[LOCALKEY] = JSON.stringify(tempStore);
+        let tagStore = {};
+        if (localStorage["tags"] != null) {
+            tagStore = JSON.parse(localStorage["tags"]);
+        }
+        localStorage["tags"] = JSON.stringify(tagStore);
 
-  timetableNavigation("#nextTimetable", "#previousTimetable");
-  populateTableFromLocal();
-  let addEvent = document.querySelector("#addEvent");
-  addEvent.addEventListener("click", async () => {
-    addEventPopup()
-  })
-}
+        let date = new Date();
+        fillTimetableDays(date);
+        setCurrentMonth(date);
+        sessionStorage.setItem("currentDate", new Date());
+
+        timetableNavigation("#nextTimetable", "#previousTimetable");
+        populateTableFromLocal();
+        let addEvent = document.querySelector("#addEvent");
+        addEvent.addEventListener("click", async () => {
+            addEventPopup();
+        });
+    }
+
 
 main.mjs
 ====================
