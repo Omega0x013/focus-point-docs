@@ -17,29 +17,6 @@ To use this class, you need to define a custom HTML element with the name `tag-i
 
 Once defined, you can interact with the `tag-input` element using JavaScript.
 
-Example
---------
-
-.. code-block:: javascript
-
-    // Create a new instance of TagComponent
-    const tagInput = document.createElement('tag-input');
-
-    // Set up the initial tags
-    tagInput.setTags(['tag1', 'tag2', 'tag3']);
-
-    // Append the tag-input element to the document
-    document.body.appendChild(tagInput);
-
-    // Add event listeners to handle user input
-    tagInput.addEventListener('tagAdded', (event) => {
-        console.log('Tag added:', event.detail.tag);
-    });
-
-    tagInput.addEventListener('tagRemoved', (event) => {
-        console.log('Tag removed:', event.detail.tag);
-    });
-
 Class: TagComponent
 --------------------
 
