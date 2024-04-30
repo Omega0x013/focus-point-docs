@@ -63,8 +63,3 @@ Initialization
 
 This code block ensures that the list of reminders is displayed when the page loads. It also attaches an event listener to the "Save" button (`#saveDeadline`) so that when clicked, it triggers the `saveDeadline()` function to save a new reminder.
 
-Usage
------
-
-To use Focus Point, simply enter the name, description, and date of the deadline you want to save, then click the "Save" button. The entered deadline will be added to the list of reminders displayed on the webpage.
-
