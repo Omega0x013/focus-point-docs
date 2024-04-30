@@ -1,68 +1,190 @@
 Functions and Classes
 ---------
 
-deadline.js
-~~~~~~~~~~~~~~
+tagcomponent.mjs
+==================
 
-saveDeadline()
-**************
+This class represents a custom HTML element called `tag-input`. It provides functionality to add, remove, and store tags.
 
-.. code-block:: javascript
+Usage
+------
 
-   function saveDeadline() {
-       // Get input values
-       var name = document.getElementById("name").value;
-       var description = document.getElementById("description").value;
-       var date = document.getElementById("date").value;
+To use this class, you need to define a custom HTML element with the name `tag-input`. For example:
 
-       // Create a new reminder object
-       var reminder = {
-           name: name,
-           description: description,
-           date: date
-       };
+.. code-block:: html
 
-       // Save the reminder to local storage
-       var reminders = JSON.parse(localStorage.getItem("reminders")) || [];
-       reminders.push(reminder);
-       localStorage.setItem("reminders", JSON.stringify(reminders));
+    <tag-input></tag-input>
 
-       // Display reminders
-       displayReminders();
-   }
+Once defined, you can interact with the `tag-input` element using JavaScript.
 
-This function saves a deadline reminder entered by the user to the local storage. It retrieves the name, description, and date of the reminder from the HTML input fields, creates a JavaScript object representing the reminder, saves it to local storage, and then calls `displayReminders()` to update the displayed list of reminders.
-
-displayReminders()
-*******************
+Example
+--------
 
 .. code-block:: javascript
 
-   function displayReminders() {
-       var reminders = JSON.parse(localStorage.getItem("reminders")) || [];
-       var remindersList = document.getElementById("reminders");
-       remindersList.innerHTML = "";
+    // Create a new instance of TagComponent
+    const tagInput = document.createElement('tag-input');
 
-       reminders.forEach(function(reminder) {
-           var reminderItem = document.createElement("div");
-           reminderItem.innerHTML = "<strong>Name:</strong> " + reminder.name + "<br>" +
-                                    "<strong>Description:</strong> " + reminder.description + "<br>" +
-                                    "<strong>Date:</strong> " + reminder.date + "<br><br>";
-           remindersList.appendChild(reminderItem);
-       });
-   }
+    // Set up the initial tags
+    tagInput.setTags(['tag1', 'tag2', 'tag3']);
 
-This function retrieves all saved reminders from local storage and displays them on the webpage. It clears the existing list of reminders, iterates over each reminder, creates a new HTML element for each reminder, and appends it to the list.
+    // Append the tag-input element to the document
+    document.body.appendChild(tagInput);
 
-Initialization
-**************
+    // Add event listeners to handle user input
+    tagInput.addEventListener('tagAdded', (event) => {
+        console.log('Tag added:', event.detail.tag);
+    });
 
-.. code-block:: javascript
+    tagInput.addEventListener('tagRemoved', (event) => {
+        console.log('Tag removed:', event.detail.tag);
+    });
 
-   // Display reminders when the page loads
-   displayReminders();
+Class: TagComponent
+--------------------
 
-   document.querySelector('#saveDeadline').addEventListener('click', saveDeadline);
+:class:`TagComponent` is a custom HTML element that represents a tag input component.
 
-This code block ensures that the list of reminders is displayed when the page loads. It also attaches an event listener to the "Save" button (`#saveDeadline`) so that when clicked, it triggers the `saveDeadline()` function to save a new reminder.
+Methods
+~~~~~~~
+
+``constructor()``
+    Initializes a new instance of the TagComponent class. Sets up initial properties.
+
+    .. code-block:: javascript
+
+        constructor() {
+            super();
+            this.tags = [];
+            this.initilized = false;
+        }
+
+``prepareHandle()``
+    Asynchronously prepares the component for handling user input. Loads the necessary template and sets up event listeners.
+
+    .. code-block:: javascript
+
+        async prepareHandle() {
+            if (this.initilized) {
+                return;
+            }
+            if (this.shadow === undefined) {
+                this.shadow = this.attachShadow({ mode: 'open' });
+            }
+            const res = await fetch(import.meta.resolve("./tagTemplate.html"));
+            this.shadow.innerHTML = await res.text();
+            this.shadow.append(this.shadow.querySelector('template').content.cloneNode(true));
+            //setting up event listeners    
+            this.itemList = this.shadow.querySelector("#itemList");
+            this.inputField = this.shadow.querySelector("#newTagInput");
+            this.inputField.addEventListener("keyup", this.handleTagAdd.bind(this));
+            this.initilized = true;
+        }
+
+``connectedCallback()``
+    Called when the element is inserted into the DOM. Calls `prepareHandle()` to ensure the component is initialized properly.
+
+    .. code-block:: javascript
+
+        async connectedCallback() {
+            //setting up DOM
+            if (this.initilized == true) {
+                return;
+            }
+            await this.prepareHandle();
+        }
+
+``handleTagAdd(event)``
+    Handles the addition of a new tag when the user presses the Enter key. Adds the tag to the list of tags and updates the DOM.
+
+    .. code-block:: javascript
+
+        handleTagAdd(e) {
+            if (e.key == "Enter") {
+                this.addTag(this.inputField.value);
+                this.itemList.prepend(this.inputField);
+                this.inputField.focus();
+            }
+        }
+
+``getTags()``
+    Returns the list of tags currently stored in the component.
+
+    .. code-block:: javascript
+
+        getTags() {
+            return this.tags;
+        }
+
+``storeTag(tagName, id)``
+    Stores a tag in the local storage. Associates the tag with an identifier.
+
+    .. code-block:: javascript
+
+        storeTag(tagName, id) {
+            // add it form local storage
+            let localTags = JSON.parse(localStorage["tags"]);
+            localTags[tagName] == null ? localTags[tagName] = [id] : localTags[tagName].push(id);
+            localStorage["tags"] = JSON.stringify(localTags);
+        }
+
+``setTags(textList)``
+    Sets the initial tags for the component based on the provided list. Updates the DOM accordingly.
+
+    .. code-block:: javascript
+
+        setTags(textList) {
+            if (textList == null) {
+                return;
+            }
+            this.itemList = this.shadow.querySelector("#itemList");
+            for (let tag of textList) {
+                this.addTag(tag);
+            }
+            this.itemList.prepend(this.inputField);
+        }
+
+``removeTag(tagObj)``
+    Removes a tag from the component and updates the DOM.
+
+    .. code-block:: javascript
+
+        removeTag(tagObj) {
+            this.tags = this.tags.filter(
+                (tags) => tags !== tagObj.querySelector('p').textContent,
+            );
+            tagObj.remove();
+        }
+
+``addTag(inputText)``
+    Adds a new tag to the component. Updates the DOM and emits a `tagAdded` event.
+
+    .. code-block:: javascript
+
+        addTag(inputText) {
+            const tag = document.createElement('li');
+            const text = document.createElement('p');
+            const remove = document.createElement('button');
+            text.textContent = inputText;
+            remove.textContent = 'X';
+            tag.append(text, remove);
+            this.itemList.prepend(tag);
+            this.tags.push(inputText);
+            this.inputField.value = '';
+            remove.addEventListener('click', () => {
+                this.removeTag(tag);
+            });
+            // Emit a tagAdded event
+            this.dispatchEvent(new CustomEvent('tagAdded', { detail: { tag: inputText } }));
+        }
+
+Events
+~~~~~~
+
+``tagAdded``
+    Emitted when a new tag is added to the component. Contains the details of the added tag.
+
+``tagRemoved``
+    Emitted when a tag is removed from the component. Contains the details of the removed tag.
+
 
