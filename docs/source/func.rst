@@ -1,4 +1,4 @@
-Functions
+deadline.js
 ---------
 
 saveDeadline()
