@@ -34,7 +34,7 @@ saveDeadline()
 This function saves a deadline reminder entered by the user to the local storage. It retrieves the name, description, and date of the reminder from the HTML input fields, creates a JavaScript object representing the reminder, saves it to local storage, and then calls `displayReminders()` to update the displayed list of reminders.
 
 displayReminders()
-**************
+*******************
 
 .. code-block:: javascript
 
