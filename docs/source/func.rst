@@ -1150,7 +1150,7 @@ Functions
    
     Initializes the timetable display and sets up event listeners for navigation and adding new events.
    
-    .. code-block:: javascript
+.. code-block:: javascript
 
     export function init() {
         sessionStorage.setItem("currentDate", new Date());
