@@ -6,9 +6,6 @@ tagcomponent.mjs
 
 This class represents a custom HTML element called `tag-input`. It provides functionality to add, remove, and store tags.
 
-Usage
-------
-
 To use this class, you need to define a custom HTML element with the name `tag-input`. For example:
 
 .. code-block:: html
@@ -18,12 +15,12 @@ To use this class, you need to define a custom HTML element with the name `tag-i
 Once defined, you can interact with the `tag-input` element using JavaScript.
 
 Class: TagComponent
---------------------
+**********************
 
 :class:`TagComponent` is a custom HTML element that represents a tag input component.
 
 Methods
-~~~~~~~
+*********
 
 ``constructor()``
     Initializes a new instance of the TagComponent class. Sets up initial properties.
@@ -156,7 +153,7 @@ Methods
         }
 
 Events
-~~~~~~
+*******
 
 ``tagAdded``
     Emitted when a new tag is added to the component. Contains the details of the added tag.
