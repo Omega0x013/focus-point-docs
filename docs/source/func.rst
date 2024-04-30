@@ -1,8 +1,11 @@
 Functions and Classes
 ---------
 
-saveDeadline()
+deadline.js
 ~~~~~~~~~~~~~~
+
+saveDeadline()
+**************
 
 .. code-block:: javascript
 
@@ -31,7 +34,7 @@ saveDeadline()
 This function saves a deadline reminder entered by the user to the local storage. It retrieves the name, description, and date of the reminder from the HTML input fields, creates a JavaScript object representing the reminder, saves it to local storage, and then calls `displayReminders()` to update the displayed list of reminders.
 
 displayReminders()
-~~~~~~~~~~~~~~~~~~
+**************
 
 .. code-block:: javascript
 
@@ -52,7 +55,7 @@ displayReminders()
 This function retrieves all saved reminders from local storage and displays them on the webpage. It clears the existing list of reminders, iterates over each reminder, creates a new HTML element for each reminder, and appends it to the list.
 
 Initialization
-~~~~~~~~~~~~~~
+**************
 
 .. code-block:: javascript
 
