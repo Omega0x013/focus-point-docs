@@ -582,7 +582,7 @@ Functions
    
    Generates an array of dates for the next specified number of days starting from a given date.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function getNextDays(date, days) {
         let array = [];
@@ -601,7 +601,7 @@ Functions
    
    Saves event data entered in the add new event popup to the local storage.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function saveDates() {
   //save dates from the add new event popup
@@ -628,7 +628,7 @@ Functions
    
    Removes the active popup from the DOM.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function selfDelete() {
   let popup = document.querySelector(".popup-active");
@@ -640,7 +640,7 @@ Functions
    
    Deletes a specific event from the local storage.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function deleteEvent(event) {
   const LOCALKEY = "timetableEvents";
@@ -666,7 +666,7 @@ Functions
    
    Stores a timetable event in the local storage.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function storeEvent(event) {
   const LOCALKEY = "timetableEvents";
@@ -692,7 +692,7 @@ Functions
    
    Fills the add new event popup with default or specified start and end dates.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
      export function fillEntryPopup(startDate, endDate) {
   let startDateInput = document.querySelector("#startDateInput");
@@ -709,7 +709,7 @@ Functions
    
    Converts a JavaScript date object to a string format suitable for input fields.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function convertDateToInputValue(date) {
   let minutes = `${date.getMinutes()}`.padStart(2, "0");
@@ -725,7 +725,7 @@ Functions
    
    Fetches an HTML template from the specified path and returns it as a DOM element.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export async function fetchTemplate(path) {
   const res = await fetch(import.meta.resolve(path));
@@ -739,7 +739,7 @@ Functions
    
     Displays the previous set of days on the timetable based on the currently selected view.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        function displayPreviousDays() {
   let selected = document.querySelector('input[name="timetable"]:checked');;
@@ -760,7 +760,7 @@ Functions
    
     Displays the next set of days on the timetable based on the currently selected view.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        function displayNextDays() {
   let selected = document.querySelector('input[name="timetable"]:checked');;
@@ -781,7 +781,7 @@ Functions
    
    Sets up navigation functionality for switching between timetable views.
    
-   .. code-block:: javascript
+.. code-block:: javascript
    
       export function timetableNavigation(nextSelector, previousSelector) {
   let next = document.querySelector(nextSelector);
@@ -836,7 +836,7 @@ Functions
    
     Fills the timetable display with day headings based on the current date.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
       export function fillTimetableDays(currentDate) {
   //maybe pass date as a param here
@@ -876,7 +876,7 @@ Functions
    
     Sets the display to show the current month and year based on the given date.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function setCurrentMonth(date) {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -891,7 +891,7 @@ Functions
    
     Clears all timetable events from the display.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function clearEvents() {
   let events = document.querySelectorAll("timetable-event");
@@ -906,7 +906,7 @@ Functions
    
     Sorts events based on their duration and start date.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function multipleDaySort(a, b) {
   let condition = a.dateDiff >= b.dateDiff && a.startDate <= b.startDate;
@@ -923,7 +923,7 @@ Functions
    
     Increases the given date by a specified number of hours.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function increaseDate(date, hours) {
   //increases the date by x number of hours
@@ -936,7 +936,7 @@ Functions
    
     Populates the timetable display with events stored in the local storage.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
       export function populateTableFromLocal() {
   let timetables = document.querySelectorAll(".timetable-wrapper");
@@ -977,7 +977,7 @@ Functions
    
     Displays the add new event popup.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export async function addEventPopup() {
   let timetableHolder;
@@ -1004,7 +1004,7 @@ Functions
    
     Gets the maximum date displayed on the timetable.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        function getMaxDayOnTimetable(timetable) {
   let maxDay = new Date(timetable.querySelector(".day-heading").dataset.day)
@@ -1018,7 +1018,7 @@ Functions
    
     Gets the minimum date displayed on the timetable.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        function getMinDayOnTimetable(timetable) {
   let minDay = new Date(timetable.querySelector(".day-heading").dataset.day);
@@ -1031,7 +1031,7 @@ Functions
    
     Calculates the difference in days between two dates.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function getDifferenceDays(startDate, endDate) {
   const milisecondDiff = Math.abs(endDate - startDate);
@@ -1052,7 +1052,7 @@ Functions
    
     Adds a timetable event to the display grid.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function addToTimetable(timetable, entry) {
   let maxDay = getMaxDayOnTimetable(timetable)
@@ -1117,7 +1117,7 @@ Functions
    
     Retrieves tags associated with a specific event ID from local storage.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function getTagsFromLocal(id) {
   let localTags = JSON.parse(localStorage["tags"])
@@ -1135,7 +1135,7 @@ Functions
    
     Removes tags associated with a specific event ID from local storage.
    
-    .. code-block:: javascript
+.. code-block:: javascript
    
        export function cleanTags(id) {
   const cachedTags = JSON.parse(localStorage["tags"]);
