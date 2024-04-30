@@ -166,9 +166,6 @@ timercomponent.mjs
 
 This class represents a custom HTML element called `timer-component`. It provides functionality for a study timer with options to set study and rest times.
 
-Usage
------
-
 To use this class, you need to define a custom HTML element with the name `timer-component`. For example:
 
 .. code-block:: html
@@ -178,12 +175,12 @@ To use this class, you need to define a custom HTML element with the name `timer
 Once defined, you can interact with the `timer-component` element using JavaScript.
 
 Class: TimerComponent
-----------------------
+***********************
 
 :class:`TimerComponent` is a custom HTML element that represents a study timer component.
 
 Methods
-~~~~~~~
+********
 
 ``constructor()``
     Initializes a new instance of the TimerComponent class.
@@ -392,9 +389,6 @@ timetableevent.mjs
 
 This class represents a custom HTML element called `timetable-event`. It provides functionality for displaying and interacting with timetable events.
 
-Usage
------
-
 To use this class, you need to define a custom HTML element with the name `timetable-event`. For example:
 
 .. code-block:: html
@@ -412,12 +406,12 @@ To use this class, you need to define a custom HTML element with the name `timet
 Once defined, you can interact with the `timetable-event` element using JavaScript.
 
 Class: TimetableEvent
-----------------------
+***********************
 
 :class:`TimetableEvent` is a custom HTML element that represents a timetable event.
 
 Methods
-~~~~~~~
+*********
 
 ``constructor()``
     Initializes a new instance of the TimetableEvent class. Sets up the shadow DOM and initializes properties based on attributes.
@@ -526,13 +520,10 @@ Methods
 timetable_template.mjs
 ============================
 
-Introduction
-------------
-
 The `entryTemplate` defines the HTML template for a timetable event entry. This documentation provides an overview of its structure.
 
 Template Definition
--------------------
+*********************
 
 .. code-block:: javascript
 
@@ -549,7 +540,7 @@ Template Definition
 This template defines the structure of a timetable event entry.
 
 Structure
----------
+**********
 
 The template consists of the following elements:
 
@@ -559,13 +550,10 @@ The template consists of the following elements:
 timetablesUtils.mjs
 =====================================
 
-Introduction
-------------
-
 The `timetableEvents` utility module provides various functions for managing timetable events, such as saving, deleting, and displaying events. This documentation provides an overview of its functionalities and usage.
 
 Constants
----------
+***********
 
 - `LOCALKEY`: The key used to store timetable events in the local storage.
 - `HOUROFFSET`: The hour offset used for calculating grid rows in the timetable display.
@@ -573,7 +561,7 @@ Constants
 - `MOVETHRESHOLD`: The threshold for detecting swipe movements.
 
 Functions
----------
+**********
 
 ``getNextDays(date, days)``
    
@@ -1159,7 +1147,7 @@ main.mjs
 This script initializes the timetable utilities and handles the creation of a timer component when a button is clicked.
 
 Script
-------
+*******
 
 .. code-block:: javascript
 
@@ -1191,7 +1179,7 @@ serviceworker.js
 This service worker script listens for the installation and activation events and logs messages when they occur.
 
 Script
-------
+********
 
 .. code-block:: javascript
 
@@ -1206,7 +1194,7 @@ index.mjs
 This module sets up an Express application with static file serving and API routing for generating UUIDs.
 
 Module
-------
+*********
 
 The ``index.mjs`` module sets up an Express application with the following features:
 
@@ -1214,7 +1202,7 @@ The ``index.mjs`` module sets up an Express application with the following featu
 2. Handling API requests for generating UUIDs.
 
 Script
-------
+*******
 
 .. code-block:: javascript
 
@@ -1248,19 +1236,19 @@ uuid.mjs
 This module provides a router for generating UUIDs using the `crypto.randomUUID()` function and handling requests to the `/api/uuid` endpoint.
 
 Module
-------
+*******
 
 The ``uuid.mjs`` module provides a router for generating UUIDs and handling requests to the `/api/uuid` endpoint.
 
 Router
-------
+********
 
 The UUID router handles the following endpoint:
 
 - ``GET /api/uuid``: Generates a UUID and sends it as a JSON response.
 
 Script
-------
+********
 
 .. code-block:: javascript
 
